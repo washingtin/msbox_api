@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.msbox.api.dao.coupon.CouponMapper">
+
+	<resultMap type="com.msbox.api.model.CouponDeliver" id="cpDeliverResultMap">
+		<result property="id" column="id"/>
+		<result property="coupon_id" column="coupon_id"/>
+		<result property="number" column="number"/>
+		<result property="creation_time" column="creation_time"/>
+		<result property="bu_id" column="bu_id"/>
+		<result property="uid" column="uid"/>
+		<result property="mobile" column="mobile"/>
+		<result property="balance" column="balance"/>
+		<result property="employee_id" column="employee_id"/>
+	</resultMap>
+
+	<insert id="saveCouponDeliver" parameterType="com.msbox.api.model.CouponDeliver" >
+		<![CDATA[
+            INSERT INTO coupon_deliver
+            (	coupon_id,
+				creation_time,
+				bu_id,
+				uid,
+				mobile,
+				number,
+				balance,
+				employee_id
+            )
+            VALUES (
+				#{coupon_id,jdbcType=INTEGER},
+				#{creation_time},
+				#{bu_id,jdbcType=INTEGER},
+				#{uid,jdbcType=INTEGER},
+				#{mobile,javaType=STRING,jdbcType=VARCHAR},
+				#{number,jdbcType=INTEGER},
+				#{balance,jdbcType=DECIMAL},
+				#{employee_id,javaType=INTEGER,jdbcType=INTEGER}
+            )
+        ]]>
+	</insert>
+
+	<update id="updateBuCoupon" parameterType="java.util.Map">
+		<![CDATA[
+			UPDATE bu_coupons SET
+				used_num = used_num + 1
+			WHERE bu_id= #{bu_id} and active_id=#{active_id}
+        ]]>
+	</update>
+
+	<select id="getCouponIdByBuIdAndActiveId" parameterType="java.util.Map" resultType="java.lang.String">
+		<![CDATA[
+			select id from bu_coupons bc
+			where bc.bu_id=#{bu_id} and bc.active_id=#{active_id}
+        ]]>
+	</select>
+
+</mapper>
