@@ -41,8 +41,6 @@ public class MsCouponController {
     @RequestMapping(value="sendCoupon.do",method = RequestMethod.POST)
     @ResponseBody
     public String sendCoupon(@Param(value="buId") String buId,@Param(value="mCode")String mCode,@Param(value="activeId") String activeId,@Param(value="userId") String userId,@Param(value="sign") String sign) {
-        //http://localhost:8080/msbox_api/sendCoupon.do?buId=128&mCode=YS0009&activeId=4664&userId=1&sign=a400e3ce92ddbc2967082ba11179c698
-        //json = "{\"bu_id\":128,\"bu_code\":\"YS0009\",\"active_id\":\"4664\",\"user_id\":\"1\",\"sign\":\"f3d56b787738590cc26a13f9678f9d2b\"}";
         String json = "{\"buId\":\""+buId + "\"," + "\"mCode\":\"" +mCode + "\"," + "\"activeId\":\"" +activeId + "\"," + "\"userId\":\"" +userId +"\"" +"}";
         JSONObject jso = JSONObject.fromObject(json);
 
