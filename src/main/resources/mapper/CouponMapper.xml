@@ -45,15 +45,29 @@
 		<![CDATA[
 			UPDATE bu_coupons SET
 				used_num = used_num + 1
-			WHERE bu_id= #{bu_id} and active_id=#{active_id}
+			WHERE bu_id= ${bu_id} and id=${active_id}
         ]]>
 	</update>
 
-	<select id="getCouponIdByBuIdAndActiveId" parameterType="java.util.Map" resultType="java.lang.String">
+	<update id="updateBuCouponTotal" parameterType="map">
 		<![CDATA[
-			select id from bu_coupons bc
-			where bc.bu_id=#{bu_id} and bc.active_id=#{active_id}
+			UPDATE bu_coupons SET
+				total = total + 1
+			WHERE bu_id= ${bu_id} and id=${active_id}
+        ]]>
+	</update>
+
+	<select id="getActiveIdByBuid" parameterType="map" resultType="java.lang.String">
+		<![CDATA[
+			select active_id from bu_coupons bc
+			where bc.bu_id=${buid} and bc.id=${activeid}
         ]]>
 	</select>
 
+	<select id="getTotalByBuIdAndActiveId" parameterType="map" resultType="java.lang.Integer">
+		<![CDATA[
+			select total from bu_coupons bc
+			where bc.bu_id=${bu_id} and bc.id=${active_id}
+        ]]>
+	</select>
 </mapper>

@@ -17,7 +17,7 @@ public interface ActiveMapper {
     @Select("select bu_key from ms_business_unit_extra_info where business_unit_id = #{bu_id}")
     public String getSignByBuId(String bu_id);
     @Select("select id from ms_bussiness_unit mb where mb.parent_id=#{bu_id} and mb.code=#{bu_code}")
-    public List<Integer> getActiveByBuIdAndBucode(@Param(value="bu_id")String bu_id,@Param(value="bu_code")String bu_code);
+    public List<Integer> getActiveByBuIdAndBucode(String bu_id,String bu_code);
     @Select("select mobile from ms_user where user_id=#{uid}")
     public String getMobileByUid(int uid);
 }
