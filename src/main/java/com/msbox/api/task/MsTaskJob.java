@@ -20,6 +20,5 @@ public class MsTaskJob {
         ActiveMapUtil amUtil = new ActiveMapUtil();
         amUtil.init();
         System.out.println("任务进行中。。。" + ActiveConstant.buIdMap.get("9"));
-        System.out.println("任务进行中。。。" + ActiveConstant.buIdMap.get("10"));
     }
 }
