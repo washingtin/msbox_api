@@ -15,11 +15,10 @@ import org.springframework.stereotype.Component;
 @Component("msTaskJob")
 public class MsTaskJob {
 
-    @Scheduled(cron = "0 */5 * * * ?")
+    @Scheduled(cron = "0 */1 * * * ?")
     public void job1() {
         ActiveMapUtil amUtil = new ActiveMapUtil();
         amUtil.init();
         System.out.println("任务进行中。。。" + ActiveConstant.buIdMap.get("9"));
-        System.out.println("任务进行中。。。" + ActiveConstant.buIdMap.get("10"));
     }
 }
