@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 命名空间 -->
+	<typeAliases>
+		<typeAlias alias="Active" type="com.msbox.api.model.Active"/>
+	</typeAliases>
+
+	<!-- 映射map 这个在spring-mybatis.xml里已经配置了-->
+	<!--mappers>
+		<mapper resource="mapper/ActiveMapper.xml"/>
+	</mappers-->
+</configuration>
